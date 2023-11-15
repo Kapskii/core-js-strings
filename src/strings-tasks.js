@@ -153,7 +153,13 @@ function repeatString(str, times) {
  *   removeFirstOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeFirstOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-const removeFirstOccurrences = (str, value) => str.replace(value, '');
+function removeFirstOccurrences(str, value) {
+  const index = str.indexOf(value);
+  if (index === -1) {
+    return str;
+  }
+  return str.substring(0, index) + str.substring(index + value.length);
+}
 
 /**
  * Remove the last occurrence of a substring from a string.
